@@ -1,0 +1,45 @@
+1.
+
+bool diviseur(d,n)
+    if n%d == 0
+      return true
+    return false 
+
+bool prime(n)
+
+   if n <2 
+     return false
+
+   for k from 2 to sqrt(n)
+     if diviseur(k,n)
+       return false
+   return true 
+
+int nb_prime(n)
+   v <- 0
+   for k from 2 to n
+      if prime(k)
+      v <- v+1
+   return v
+
+
+2.
+
+int nb_prime2(n, tab[])
+    if n<2 
+      return 0
+    v <- 0
+    for k from 2 to n 
+      if tab[k]== true
+        v <- v+1
+        for i from k*k to n (pas de k)
+           tab[i] <- false 
+    return v
+
+
+3.
+
+de ce qui précède, pour chaque nombre premier 
+on effectue n/k opérations sur notre tableau
+en factorisant par n et d'apres la majoration 
+proposée, on a une complexité en O(nlog(log(n)))
